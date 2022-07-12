@@ -1,1 +1,6 @@
 theme: jekyll-theme-tactile
+defaults:
+  - scope:
+      path: "assets/images"
+    values:
+      image: true

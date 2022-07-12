@@ -1,0 +1,175 @@
+\documentclass[a4paper,20pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=black,
+    }
+\urlstyle{same}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.530in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.45in}
+\addtolength{\textheight}{1in}
+
+% \urlstyle{rm}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-10pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeItemWithoutTitle}[1]{
+  \item\small{
+    {\vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{#3} & \textit{#4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-3pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-----------------------------
+%%%%%%  CV STARTS HERE  %%%%%%
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{{\LARGE Nathan Gardner Hattersley}} & Email: \href{mailto:}{nhattersley@utexas.edu}\\
+  \href{https://nateybear.github.io}{Portfolio: nateybear.github.io} & Mobile:+1-512-364-4976 \\
+  \href{https://github.com/nateybear}{Github: ~~github.com/nateybear} \\
+\end{tabular*}
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Texas at Austin}{Austin, Texas}
+      {M.A., Economics; Ph.D., Economics (expected)}{Aug 2020–Present}
+    \resumeSubheading{University of Arizona}{Tucson, Arizona}{B.A., Mathematics and Computer Science; M.S., Statistics}{Aug 2013–May 2018}
+    \resumeSubHeadingListEnd
+	    
+\vspace{-5pt}
+\section{Skills Summary}
+	\resumeSubHeadingListStart
+	\resumeSubItem{Programming}{~~~~~~~R, Python, Julia, C, Java, Stata, LaTeX, HTML/CSS/JS, Typescript, MATLAB}
+	\resumeSubItem{Tools/Frameworks}{tidyverse, RStudio, VS Code, git/GitHub, Docker, React, SQL, GraphQL, Django}
+	\resumeSubItem{Languages}{~~~~~~~~~~~~English (native); Spanish (proficient)}
+
+\resumeSubHeadingListEnd
+\vspace{-5pt}
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading{World Bank Group}{Remote}
+    {Short-Term Consultant}{Feb 2021–Aug 2021}
+    \resumeItemListStart
+        \item Assisted Poverty and Equity Global Practice with Systemic Country Diagnostic for Afghanistan
+        \item Contributed analyses in target report areas in R and developed indices of political fear and participation
+      \resumeItemListEnd
+    \resumeSubheading
+		{JPMorgan Chase \& Co.}{Houston, TX}
+		{Analyst}{June 2018{\textendash}June 2020}
+		\resumeItemListStart
+        \item 
+          {Developed software in Python and Typescript to support interest rate derivatives trading desk}
+        \item
+          {Researched and advised management on plans for transition to new tech stack}
+        \item {Individually presented and clarified design solutions to broader technical workforce}
+        \item Represented team of eight in conversations with stakeholders regarding transition plans.
+		\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------------
+\vspace{-5pt}
+\section{Academic Projects}
+\resumeSubHeadingListStart
+\resumeSubItem{ECON 380: Research Assistant}{(Fall 2020) Production function estimation with Prof.\ Daniel Ackerberg. Supported experiments on consistency of estimator given assumtpions about capital accumulation process. Wrote Monte Carlo simulations in Julia and MATLAB to demonstrate theoretical results.}
+\vspace{2pt}
+\resumeSubItem{STAT 688: Statistical Consulting}{(Fall 2017) Consulted for Ph.D.\ candidates and postdocs from various fields with data analysis problems in R. Applied data science skillset to solve problems in variety of domains such as medicine and public health.}
+\resumeSubHeadingListEnd
+\vspace{-5pt}
+%-----------Awards-----------------
+\section{Honors and Awards}
+\begin{description}[font=$\bullet$]
+\item National Merit Scholar
+\vspace{-5pt}
+\item Arizona Wildcat Excellence Scholar (undergraduate, \$120,000 award)
+\vspace{-5pt}
+\item Merit-based tuition award (graduate at Arizona, \$9,900)
+\vspace{-5pt}
+\item Merit-based tuition award (graduate at UT, \$23,000)
+\end{description}
+
+\vspace{-5pt}
+\section{Volunteer Experience}
+  \resumeSubHeadingListStart
+  \resumeSubheading
+		{Amigos de las Am\'{e}ricas}{Tucson, AZ; Houston, TX}
+		{Treasurer and Board Member}{Sep 2016{\textendash}June 2020}
+		\resumeItemListStart
+        \item 
+          {Budgeted for 35{\textendash}45 students to participate in nonprofit community development projects in Latin America}
+        \item
+          {Developed and managed complex Excel spreadsheets and QuickBooks setup for team of volunteer bookkeepers}
+        \item {Attended national meetings to set organizational strategy and refocus mission statement}
+		\resumeItemListEnd
+\vspace{5pt}
+\resumeSubheading
+		{Amigos de las Am\'{e}ricas}{Cajamarca, Peru}
+		{Program Supervisor}{May 2014{\textendash}Aug 2014}
+		\resumeItemListStart
+        \item 
+          {Consulted with local nonprofit agencies to execute projects in host communities}
+        \item
+          {Responsible for participant safety and success throughout the Cajamarca region}
+        \item {Advised participants and host community members on sustainable development practices}
+		\resumeItemListEnd
+\resumeSubHeadingListEnd
+\end{document}
