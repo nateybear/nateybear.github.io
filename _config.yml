@@ -4,3 +4,4 @@ defaults:
       path: "assets/images"
     values:
       image: true
+google_analytics: G-4C16PRGEYD
