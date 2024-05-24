@@ -9,6 +9,7 @@
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{fancyhdr}
+\usepackage{hanging}
 
 \hypersetup{
     colorlinks=true,
@@ -82,7 +83,7 @@
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
   \textbf{{\LARGE Nathan Gardner Hattersley}} & Email: \href{mailto:}{nhattersley@utexas.edu}\\
-  \href{https://nateybear.github.io}{Portfolio: nateybear.github.io} & Mobile:+1-512-364-4976 \\
+  \href{https://nghattersley.net}{Portfolio: nghattersley.net} & Mobile:+1-512-364-4976 \\
   \href{https://github.com/nateybear}{Github: ~~github.com/nateybear} \\
 \end{tabular*}
 
@@ -94,17 +95,25 @@
       {M.A., Economics; Ph.D., Economics (expected)}{Aug 2020–Present}
     \resumeSubheading{University of Arizona}{Tucson, Arizona}{B.A., Mathematics and Computer Science; M.S., Statistics}{Aug 2013–May 2018}
     \resumeSubHeadingListEnd
+
+%----------RESEARCH INTERESTS--------
+\vspace{-5pt}
+\section{Research Interests}
+\begin{itemize}[leftmargin=*, itemindent=-9em]
+  \resumeSubItem{Field Courses}{~~~~~~Industrial Organization, Econometrics, Development}
+  \resumeSubItem{Current Research}{Antitrust policy, conduct testing, spatial and dynamic competition, vertical interactions and bargaining, relational contracting, agricultural and supermarket logistics in developing countries}
+  \resumeSubHeadingListEnd
 	    
 \vspace{-5pt}
 \section{Skills Summary}
 	\resumeSubHeadingListStart
-	\resumeSubItem{Programming}{~~~~~~~R, Python, Julia, C, Java, Stata, LaTeX, HTML/CSS/JS, Typescript, MATLAB}
-	\resumeSubItem{Tools/Frameworks}{tidyverse, RStudio, VS Code, git/GitHub, Docker, React, SQL, GraphQL, Django}
+	\resumeSubItem{Programming}{~~~~~~~R, Python, Julia, Rust, C, Java, Stata, LaTeX, HTML/CSS/JS, Typescript, MATLAB}
+	\resumeSubItem{Tools/Frameworks}{Postgres/PostGIS, git/GitHub, Docker, SQL, Parallel Computing/HPC, Makefiles}
 	\resumeSubItem{Languages}{~~~~~~~~~~~~English (native); Spanish (proficient)}
 
 \resumeSubHeadingListEnd
 \vspace{-5pt}
-\section{Experience}
+\section{Work Experience}
   \resumeSubHeadingListStart
     \resumeSubheading{World Bank Group}{Remote}
     {Short-Term Consultant}{Feb 2021–Aug 2021}
@@ -118,58 +127,23 @@
 		\resumeItemListStart
         \item 
           {Developed software in Python and Typescript to support interest rate derivatives trading desk}
-        \item
-          {Researched and advised management on plans for transition to new tech stack}
-        \item {Individually presented and clarified design solutions to broader technical workforce}
-        \item Represented team of eight in conversations with stakeholders regarding transition plans.
+        \item  
+          {Individually designed and executed complex requirements including order flow matching and trade modeling}
+        \item {Researched and advised management on plans for transition to new tech stack}
+        \item Represented team of eight in conversations with stakeholders regarding transition plans
 		\resumeItemListEnd
 
 \resumeSubHeadingListEnd
 
 %-----------PROJECTS-----------------
-\vspace{-5pt}
-\section{Academic Projects}
-\resumeSubHeadingListStart
-\resumeSubItem{ECON 380: Research Assistant}{(Fall 2020) Production function estimation with Prof.\ Daniel Ackerberg. Supported experiments on consistency of estimator given assumptions about capital accumulation process. Wrote Monte Carlo simulations in Julia and MATLAB to demonstrate theoretical results.}
+\vspace{-5pt}\section{Academic Experience}
+\begin{itemize}[leftmargin=*, itemindent=-12pt]
+  \resumeSubItem{Teaching Assistance}{Master's level Econometrics ('21, '22, '23), Causal Inference ('21, '22), and Industrial Organization~('23). Gave 90-minute weekly review lectures, curated lessons on statistical programming, and wrote and graded solutions for exams and problem sets. See \href{https://github.com/nateybear/causal-inference-2022}{GitHub} and \href{https://pages.nghattersley.net/metrics-in-r}{personal website} for examples.}
+\resumeSubItem{DevOps for Researchers}{(Fall 2023) Implemented example code in Julia for multiple problems using multiple parallelization methods, in order to assess optimal ways of using department computing resources. Conducted performance tests and collaborated with colleagues working in Python and MATLAB in order to create standardized computing recommendations as well as language-specific guidelines. Other deparment members have used this guide to speed up estimation routines by orders of magnitude. See \href{https://github.com/nateybear/parallel-racers/wiki}{GitHub}.}
+\resumeSubItem{Research Assistance}{(Fall 2020) Production function estimation with Prof.\ Daniel Ackerberg. Supported experiments on consistency of estimator given assumptions about capital accumulation process. Reimplemented original Gauss code in both Julia and MATLAB. Wrote additional Monte Carlo simulations in Julia to demonstrate theoretical results about necessary exogenous variation in the investment DGP that can identify returns to capital, and the instability of recent estimators without any noise in the investment process. See \href{https://github.com/nateybear/production-functions.jl}{GitHub}.}
 \vspace{2pt}
-\resumeSubItem{STAT 688: Statistical Consulting}{(Fall 2017) Consulted for Ph.D.\ candidates and postdocs from various fields with data analysis problems in R. Applied data science skillset to solve problems in variety of domains such as medicine and public health.}
+\resumeSubItem{Statistical Consulting}{(Fall 2017) Consulted for Ph.D.\ candidates and postdocs from various fields with data analysis problems in R. Used statistical education to provide input on experimental design and appropriate analysis for problems like repeated sampling, hierarchical models, and model selection.}
 \resumeSubHeadingListEnd
 \vspace{-5pt}
-%-----------Awards-----------------
-\section{Honors and Awards}
-\begin{description}[font=$\bullet$]
-\item National Merit Scholar
-\vspace{-5pt}
-\item Arizona Wildcat Excellence Scholar (undergraduate, \$120,000 award)
-\vspace{-5pt}
-\item Merit-based tuition award (graduate at Arizona, \$9,900)
-\vspace{-5pt}
-\item Merit-based tuition award (graduate at UT, \$23,000)
-\end{description}
 
-\vspace{-5pt}
-\section{Volunteer Experience}
-  \resumeSubHeadingListStart
-  \resumeSubheading
-		{Amigos de las Am\'{e}ricas}{Tucson, AZ; Houston, TX}
-		{Treasurer and Board Member}{Sep 2016–June 2020}
-		\resumeItemListStart
-        \item 
-          {Budgeted for 35–45 students to participate in nonprofit community development projects in Latin America}
-        \item
-          {Developed and managed complex Excel spreadsheets and QuickBooks setup for team of volunteer bookkeepers}
-        \item {Attended national meetings to set organizational strategy and refocus mission statement}
-		\resumeItemListEnd
-\vspace{5pt}
-\resumeSubheading
-		{Amigos de las Am\'{e}ricas}{Cajamarca, Peru}
-		{Program Supervisor}{May 2014–Aug 2014}
-		\resumeItemListStart
-        \item 
-          {Consulted with local nonprofit agencies to execute projects in host communities}
-        \item
-          {Responsible for participant safety and success throughout the Cajamarca region}
-        \item {Advised participants and host community members on sustainable development practices}
-		\resumeItemListEnd
-\resumeSubHeadingListEnd
 \end{document}
