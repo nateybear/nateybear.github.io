@@ -1,0 +1,273 @@
+from glob import glob
+
+
+wildcard_constraints:
+    file="[a-z]+",
+    i="\\d+",
+    average="(mean|median)",
+    model="[a-z\\d]+",
+
+
+# data_files = [
+#     f.split("/")[-1].replace(".dta", "").replace("_proc", "")
+#     for f in glob("data/*.dta")
+# ]
+
+data_files = ["carbbev"]
+models = ["poly2", "poly3", "muntz2", "muntz3"]
+
+allof = lambda path: expand(
+    path,
+    file=data_files,
+    model=models,
+)
+
+
+rule all:
+    input:
+        allof("plots/{model}/{file}_elasticity_curvature_mean.png"),
+        allof("data/results/{model}/{file}_optimal_uniform_price.arrow"),
+        allof("data/results/{model}/{file}_correlations.csv"),
+        allof("data/results/{model}/{file}_acv_tests.csv"),
+
+
+rule stata_to_arrow:
+    input:
+        "data/{file}_proc.dta",
+        "scripts/to_arrow.jl",
+    output:
+        "data/arrow/{file}_proc.arrow",
+    log:
+        "logs/stata_to_arrow_{file}.log",
+    run:
+        julia("scripts/to_arrow.jl", input=input, output=output, log=log)
+
+
+rule clean_arrow:
+    input:
+        "data/arrow/{file}_proc.arrow",
+        "scripts/clean.jl",
+    output:
+        "data/clean/{file}_clean.arrow",
+    log:
+        "logs/clean_{file}.log",
+    run:
+        julia("scripts/clean.jl", input=input, output=output, log=log)
+
+
+if config.get("platform") == "hpc":
+
+    rule nonparametric_regression:
+        input:
+            "data/clean/{file}_clean.arrow",
+            "scripts/regress.jl",
+        output:
+            estimates="data/results/{model}/{file}_{average}.csv",
+            coefficients="data/results/{model}/{file}/coefficients/all_{average}.jld2",
+        log:
+            "logs/nonparametric_regression_{file}_{model}_{average}.log",
+        run:
+            julia(
+                "scripts/regress.jl",
+                input=input,
+                output=output,
+                log=log,
+                wildcards=wildcards,
+            )
+
+else:
+
+    checkpoint partition_arrow:
+        input:
+            "data/clean/{file}_clean.arrow",
+            "scripts/partition.jl",
+        output:
+            directory("data/clean/{file}/"),
+        log:
+            "logs/partition_{file}.log",
+        run:
+            julia("scripts/partition.jl", input=input, output=output, log=log)
+
+    from pathlib import Path
+
+    def get_estimate_outputs(wildcards):
+        checkpoint_output = checkpoints.partition_arrow.get(**wildcards).output[0]
+        batches = sorted(glob(f"{checkpoint_output}/*.arrow"))
+        batch_names = [
+            Path(b).stem for b in batches
+        ]  # gets just the filename without extension
+        model = wildcards.model if hasattr(wildcards, "model") else "parametric"
+        average = f"_{wildcards.average}" if hasattr(wildcards, "average") else ""
+        return [
+            f"data/results/{model}/{wildcards.file}/{batch_name}{average}.csv"
+            for batch_name in batch_names
+        ]
+
+    rule nonparametric_regression_batch:
+        input:
+            "data/clean/{file}/batch_{i}.arrow",
+            "scripts/regress.jl",
+        output:
+            estimates="data/results/{model}/{file}/batch_{i}_{average}.csv",
+            coefficients="data/results/{model}/{file}/coefficients/batch_{i}_{average}.jld2",
+        log:
+            "logs/nonparametric_regression_{file}_{model}_{average}_{i}.log",
+        run:
+            julia(
+                "scripts/regress.jl",
+                input=input,
+                output=output,
+                log=log,
+                wildcards=wildcards,
+            )
+
+    rule nonparametric_regression:
+        input:
+            get_estimate_outputs,
+        output:
+            "data/results/{model}/{file}_{average}.csv",
+        log:
+            "logs/nonparametric_regression_{file}_{model}_{average}.log",
+        shell:
+            "mlr --csv cat {input} > {output}"
+
+
+rule npplot:
+    input:
+        "scripts/plot.jl",
+        regression_results="data/results/{model}/{file}_{average}.csv",
+    output:
+        elasticity_curvature="plots/{model}/{file}_elasticity_curvature_{average}.png",
+        elasticity_histogram="plots/{model}/{file}_histogram_elasticity_{average}.png",
+        curvature_histogram="plots/{model}/{file}_histogram_curvature_{average}.png",
+    log:
+        "logs/plot_{file}_{model}_{average}.log",
+    run:
+        julia(
+            "scripts/plot.jl",
+            input=input,
+            output=output,
+            log=log,
+            wildcards=wildcards,
+        )
+
+
+rule cor_table:
+    input:
+        "scripts/correlation_table.jl",
+        regression_results="data/results/{model}/{file}_mean.csv",
+    output:
+        "data/results/{model}/{file}_correlations.csv",
+    log:
+        "logs/correlations_{model}_{file}.log",
+    run:
+        julia(
+            "scripts/correlation_table.jl",
+            input=input,
+            output=output,
+            log=log,
+            wildcards=wildcards,
+        )
+
+
+def get_coef_estimates(wildcards):
+    if config.get("platform") == "hpc":
+        return [
+            f"data/results/{wildcards.model}/{wildcards.file}/coefficients/all_mean.jld2"
+        ]
+    else:
+        return glob(
+            f"data/results/{wildcards.model}/{wildcards.file}/coefficients/*.jld2"
+        )
+
+
+rule uniform_price:
+    input:
+        "scripts/uniform_price.jl",
+        product_data="data/clean/{file}_clean.arrow",
+        averages="data/results/{model}/{file}_mean.csv",
+        coef_estimates=get_coef_estimates,
+    output:
+        "data/results/{model}/{file}_optimal_uniform_price.arrow",
+    log:
+        "logs/optimal_uniform_price_{model}_{file}.log",
+    run:
+        julia(
+            "scripts/uniform_price.jl",
+            input=input,
+            output=output,
+            log=log,
+            wildcards=wildcards,
+        )
+
+
+rule acv_tests:
+    input:
+        "data/results/{model}/{file}_optimal_uniform_price.arrow",
+        "scripts/acv.jl",
+    output:
+        "data/results/{model}/{file}_acv_tests.csv",
+    log:
+        "logs/acv_tests_{model}_{file}.log",
+    run:
+        julia(
+            "scripts/acv.jl",
+            input=input,
+            output=output,
+            log=log,
+            wildcards=wildcards,
+        )
+
+
+rule sysimage:
+    input:
+        "make_sysimage.jl",
+        "src/*.jl",
+        "Project.toml",
+    output:
+        "sysimage.so",
+    log:
+        "logs/make_sysimage.log",
+    shell:
+        "./make_sysimage.jl > {log} 2>&1"
+
+
+### UTILS: running julia
+from snakemake.shell import shell
+import tempfile
+from json import dumps
+
+
+def process_args(x):
+    """
+    Processes input/output/etc. as dict if it has kwargs or a list if it doesn't.
+    """
+    kwargs = dict(x)
+    if kwargs:
+        args_as_dict = {i + 1: v for i, v in enumerate(x)}
+        return args_as_dict | kwargs
+    else:
+        return list(x)
+
+
+def julia(scriptfile, **rule):
+    """
+    Run a Julia script.
+    """
+    rule_dict = {k: process_args(v) for k, v in rule.items()}
+    # write dumps(rule) to a temp file
+    # use tempfile package
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".json") as f:
+        f.write(dumps(rule_dict).encode())
+        f.flush()
+        # make sure to close the file
+        f.close()
+
+        # run the script with the temp file as input
+        threads = config.get("threads", "auto")
+        sysimage = f"--sysimage={config['sysimage']}" if config.get("sysimage") else ""
+        shell(
+            f"julia --project=. --threads={threads} {sysimage} {scriptfile} < '{f.name}'"
+        )
+        # delete the temp file
+        os.remove(f.name)
