@@ -1,11 +1,7 @@
 <div class="px-4 py-3 text-center">
-    <img class="d-block mx-auto mb-4 rounded border border-2 border-primary" src="assets/images/hero.jpeg" alt="" width="50%" style="max-width:450px">
+    <img class="d-block mx-auto mb-4 rounded border border-2 border-primary" src="assets/images/about_photo.jpeg" alt="" width="50%" style="max-width:450px">
     <h1 class="display-5 fw-bold">Nathan Gardner Hattersley</h1>
     <div class="col-lg-9 mx-auto">
-      <p class="lead mb-4">I'm Nate. This is my personal website. I'm a Ph.D. student in Economics and a hobbyist programmer. The pic above is of my wife and me in New York. See below for more about me.</p>
-      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <a href="about" type="button" class="btn btn-primary btn-lg px-4 gap-3">Bio</a>
-        <a href="cv" type="button" class="btn btn-outline-secondary btn-lg px-4">CV</a>
-      </div>
+      <p class="lead mb-4">Hi! I am a PhD Candidate in Economics at UT Austin. I will be on the job market in the 2026–27 academic year. My research interests include consumer goods, vertical relationships, and antitrust matters.</p>
     </div>
   </div>
