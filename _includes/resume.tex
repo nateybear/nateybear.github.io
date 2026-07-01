@@ -14,13 +14,13 @@
 \hypersetup{
     colorlinks=true,
     linkcolor=black,
-    filecolor=black,      
+    filecolor=black,
     urlcolor=black,
-    }
+}
 \urlstyle{same}
 
 \pagestyle{fancy}
-\fancyhf{} % clear all header and footer fields
+\fancyhf{}
 \fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
@@ -31,8 +31,6 @@
 \addtolength{\textwidth}{1in}
 \addtolength{\topmargin}{-.45in}
 \addtolength{\textheight}{1in}
-
-% \urlstyle{rm}
 
 \raggedbottom
 \raggedright
@@ -45,28 +43,24 @@
 
 %-------------------------
 % Custom commands
+
 \newcommand{\resumeItem}[2]{
   \item\small{
-    \textbf{#1}{: #2 \vspace{-2pt}}
-  }
-}
-
-\newcommand{\resumeItemWithoutTitle}[1]{
-  \item\small{
-    {\vspace{-2pt}}
+    \textbf{#1}: #2 \vspace{-2pt}
   }
 }
 
 \newcommand{\resumeSubheading}[4]{
   \vspace{-1pt}\item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{#3} & \textit{#4} \\
-    \end{tabular*}\vspace{-5pt}
+  \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{#3} & \textit{#4}
+  \end{tabular*}\vspace{-5pt}
 }
 
-
-\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-3pt}}
+\newcommand{\resumeSubItem}[2]{
+\resumeItem{#1}{#2}\vspace{-3pt}
+}
 
 \renewcommand{\labelitemii}{$\circ$}
 
@@ -75,79 +69,172 @@
 \newcommand{\resumeItemListStart}{\begin{itemize}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
-%-----------------------------
-%%%%%%  CV STARTS HERE  %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% CV STARTS %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
 %----------HEADING-----------------
+
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-  \textbf{{\LARGE Nathan Gardner Hattersley}} & Email: \href{mailto:}{nhattersley@utexas.edu}\\
-  \href{https://nghattersley.net}{Portfolio: nghattersley.net} & Mobile:+1-512-364-4976 \\
-  \href{https://github.com/nateybear}{Github: ~~github.com/nateybear} \\
+\textbf{\LARGE Nathan Gardner Hattersley} &
+Email: \href{mailto:nhattersley@utexas.edu}{nhattersley@utexas.edu} \\
+\href{https://nghattersley.net}{nghattersley.net} &
+Mobile: +1 (512) 364-4976 \\
+\href{https://github.com/nateybear}{github.com/nateybear}
 \end{tabular*}
 
+%-----------SUMMARY-----------------
+
+\section{Summary}
+
+\small
+Ph.D. candidate in Economics at the University of Texas at Austin with an M.S. in Statistics.
+Specialize in causal inference, pricing, demand estimation, and structural industrial organization
+using large observational datasets. Experience spans antitrust litigation, global policy research,
+and production software engineering.
+
 %-----------EDUCATION-----------------
+
 \section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {University of Texas at Austin}{Austin, Texas}
-      {M.A., Economics; Ph.D., Economics (expected)}{Aug 2020–Present}
-    \resumeSubheading{University of Arizona}{Tucson, Arizona}{M.S., Statistics; B.A., Mathematics and Computer Science}{Aug 2013–May 2018}
-    \resumeSubHeadingListEnd
 
-%----------RESEARCH INTERESTS--------
-\vspace{-5pt}
-\section{Research Interests}
-\begin{itemize}[leftmargin=*, itemindent=-9em]
-  \resumeSubItem{Field Courses}{~~~~~~Industrial Organization, Econometrics}
-  \resumeSubItem{Current Research}{Antitrust policy, consumer goods, vertical relationships, tacit collusion, algorithmic pricing}
-  \resumeSubHeadingListEnd
-	    
-\vspace{-5pt}
-\section{Skills Summary}
-	\resumeSubHeadingListStart
-	\resumeSubItem{Programming}{~~~~~~~R, Python, Julia, Rust, C, Java, Stata, LaTeX, Bash, HTML/CSS/JS, Typescript, MATLAB}
-	\resumeSubItem{Tools/Frameworks}{Postgres/PostGIS, git/GitHub, Docker, Pandas, SQL, Parallel Computing/HPC, Build Tools}
-	\resumeSubItem{Languages}{~~~~~~~~~~~~English (native); Spanish (proficient)}
+\resumeSubHeadingListStart
 
-\resumeSubHeadingListEnd
-\vspace{-5pt}
-\section{Work Experience}
-  \resumeSubHeadingListStart
-  \resumeSubheading{Texas Office of the Attorney General}{Austin, TX}
-    {Economics Fellow}{July 2024–June 2025}
-    \resumeItemListStart
-        \item Assist in antitrust matters brought or joined by the state of Texas, particularly involving collusion via algorithmic pricing and online auction manipulation
-      \resumeItemListEnd
-    \resumeSubheading{World Bank Group}{Remote}
-    {Short-Term Consultant}{Feb 2021–Aug 2021}
-    \resumeItemListStart
-        \item Assisted in creation of Systemic Country Diagnostic for Afghanistan, contributing analyses in target report areas using R and developing indices of political fear and participation
-      \resumeItemListEnd
-    \resumeSubheading
-		{JPMorgan Chase \& Co.}{Houston, TX}
-		{Analyst}{June 2018–June 2020}
-		\resumeItemListStart
-        \item 
-          {Wrote software in Python and Typescript supporting interest rate derivatives traders}
-        \item  
-          {Individually designed and executed complex requirements including order flow matching and trade modeling}
-        \item {Researched and advised on transition to new tech stack}
-        \item Represented team of eight in stakeholder meetings regarding transition plans
-		\resumeItemListEnd
+\resumeSubheading
+{University of Texas at Austin}
+{Austin, TX}
+{Ph.D. Economics (expected 2026); M.A. Economics}
+{Aug 2020--Present}
+
+\resumeSubheading
+{University of Arizona}
+{Tucson, AZ}
+{M.S. Statistics; B.A. Mathematics and Computer Science}
+{Aug 2013--May 2018}
 
 \resumeSubHeadingListEnd
 
-%-----------PROJECTS-----------------
-\vspace{-5pt}\section{Academic Experience}
-\begin{itemize}[leftmargin=*, itemindent=-12pt]
-  \resumeSubItem{Teaching Assistance}{Master's level Econometrics ('21, '22, '23), Causal Inference ('21, '22), and Industrial Organization~('23, '24). Gave 90-minute weekly review lectures, curated lessons on statistical programming, and wrote and graded solutions for exams and problem sets. See GitHub (\href{https://github.com/nateybear/causal-inference-2022}{link}) and personal website (\href{https://pages.nghattersley.net/metrics-in-r}{link}) for examples.}
-\resumeSubItem{DevOps for Researchers}{(Fall 2023) Implemented example code in Julia for multiple problems using multiple parallelization methods, in order to assess optimal ways of using department computing resources. Conducted performance tests and collaborated with colleagues working in Python and MATLAB in order to create standardized computing recommendations as well as language-specific guidelines. Other department members used this guide to speed up estimation routines by orders of magnitude. See GitHub (\href{https://github.com/nateybear/parallel-racers/wiki}{link}).}
-\resumeSubItem{Research Assistance}{(Fall 2020) Supported experiments on consistency of production function estimators with Prof. Daniel Ackerberg. Reimplemented original Gauss code in both Julia and MATLAB. Wrote additional Monte Carlo simulations in Julia to demonstrate theoretical results about necessary exogenous variation in the investment DGP that can identify returns to capital, and the instability of recent estimators without any noise in the investment process. See GitHub (\href{https://github.com/nateybear/production-functions.jl}{link}).}
-\vspace{2pt}
-\resumeSubItem{Statistical Consulting}{(Fall 2017) Consulted for Ph.D.\ candidates and postdocs from various fields with data analysis problems in R. Used statistical education to provide input on experimental design and appropriate analysis for problems like repeated sampling, hierarchical models, and model selection.}
+%-----------SKILLS-----------------
+
+\section{Skills}
+
+\resumeSubHeadingListStart
+
+\resumeSubItem
+{Programming}
+{Python, R, Julia, SQL, TypeScript, Rust, Java, C, Stata, MATLAB, Bash}
+
+\resumeSubItem
+{Economics \& Statistics}
+{Causal inference, structural modeling, demand estimation, nonparametric methods, numerical optimization}
+
+\resumeSubItem
+{Tools}
+{Pandas, tidyverse, Postgres/PostGIS, Docker, Git, HPC, Make/Snakemake, \LaTeX}
+
+\resumeSubItem
+{Languages}
+{English (native); Spanish (proficient)}
+
 \resumeSubHeadingListEnd
-\vspace{-5pt}
+
+%-----------EXPERIENCE-----------------
+
+\section{Professional Experience}
+
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Texas Office of the Attorney General}
+{Austin, TX}
+{Economics Fellow}
+{Jul 2024--Jun 2025}
+
+\resumeItemListStart
+
+\item Analyzed antitrust cases involving online advertising auctions and algorithmic collusion using industrial organization frameworks.
+
+\item Drafted expert rebuttals and economic analyses supporting litigation strategy alongside senior economists.
+
+\item Identified a security vulnerability affecting a pivotal case, informing defensive legal strategy.
+
+\item Communicated technical economic findings to attorneys and other non-technical stakeholders.
+
+\resumeItemListEnd
+
+\resumeSubheading
+{World Bank Group}
+{Remote}
+{Short-Term Consultant}
+{Feb 2021--Aug 2021}
+
+\resumeItemListStart
+
+\item Built a PCA-based index measuring political participation in Afghanistan using large-scale survey data.
+
+\item Designed an algorithm incorporating ordinal survey rankings into composite participation measures.
+
+\item Authored technical documentation and presented methodology and findings to project stakeholders.
+
+\item Developed and delivered internal training on R, tidy data principles, and functional programming.
+
+\resumeItemListEnd
+
+\resumeSubheading
+{JPMorgan Chase \& Co.}
+{Houston, TX}
+{Analyst (Software Engineering)}
+{Jun 2018--Jun 2020}
+
+\resumeItemListStart
+
+\item Developed and maintained production trading systems in Python and TypeScript supporting interest rate derivatives.
+
+\item Designed regulatory workflows and trade models for new financial instruments.
+
+\item First team migrating legacy platform to a microservice architecture using React, GraphQL, and WebSockets.
+
+\item Collaborated with technical and business stakeholders to refine requirements, beta test software, and resolve deployment bottlenecks.
+
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------RESEARCH-----------------
+
+\section{Research}
+
+\resumeSubHeadingListStart
+
+\resumeSubItem
+{Automobile Pricing}
+{Causal analysis of automobile dealership consolidation using transaction-level data to estimate effects on prices and consumer outcomes.}
+
+\resumeSubItem
+{Dynamic Pricing}
+{Structural model of allocation incentives and pricing behavior under dynamic competition.}
+
+\resumeSubItem
+{Consumer Demand}
+{Nonparametric estimation of grocery demand and pass-through using high-dimensional scanner data.}
+
+\resumeSubHeadingListEnd
+
+%-----------ADDITIONAL-----------------
+
+\section{Additional Experience}
+
+\resumeSubHeadingListStart
+
+\resumeSubItem
+{Teaching}
+{Teaching assistant for Master's Econometrics, Industrial Organization, and Causal Inference. Led weekly review sessions, designed programming assignments, and taught statistical computing.}
+
+\resumeSubItem
+{Research Computing}
+{Led workshops on high-performance computing for economics Ph.D. students and developed departmental guidance for parallel computing in Julia, Python, and MATLAB.}
+
+\resumeSubHeadingListEnd
 
 \end{document}
