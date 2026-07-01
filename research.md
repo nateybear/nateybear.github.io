@@ -2,6 +2,8 @@
 title: Research
 ---
 
+---
+
 ## Work in Progress
 
 ### Downstream Concentration in Regulated Vertical Relationships: Car Dealerships in Texas
