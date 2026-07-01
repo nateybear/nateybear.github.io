@@ -6,7 +6,6 @@ title: Research
 
 ### Downstream Concentration in Regulated Vertical Relationships: Car Dealerships in Texas
 
-<span class="lead">Job market paper</span>
 
 This paper provides the first merger retrospective of automobile dealerships, using detailed transaction and registration data from Texas to study the competitive effects of increasing downstream concentration under state franchise law. Although acquisitions by dealer groups substantially increase local market concentration, I find little evidence that they raise retail prices or reduce quantities sold.
 
@@ -17,6 +16,9 @@ These findings challenge conventional views of dealer consolidation and franchis
 ---
 
 ### What Is the Value of a Sales Target?
+
+<span class="lead">Job market paper</span>
+
 
 This paper studies how manufacturers use sales targets to coordinate incentives in vertically separated distribution systems. I develop a theoretical model in which manufacturers reward dealerships that meet sales targets with preferential allocations of scarce, high-value vehicles. Although this mechanism distorts production toward lower-value vehicle trims relative to a vertically integrated benchmark, it also reduces the classic double-marginalization problem by aligning manufacturer and dealer incentives.
 
